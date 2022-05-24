@@ -1,0 +1,24 @@
+nav {
+  padding-top: 4vh;
+  text-align: center;
+}
+
+.button {
+  background-color: cadetblue;
+  border-radius: 10px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+body {
+  background-color: beige;
+
+}
+h1 {
+    padding-top: 5vh;
+    text-align: center;
+}
