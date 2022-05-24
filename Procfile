@@ -1,0 +1,1 @@
+web: gunicorn snack_tracker_project.wsgi

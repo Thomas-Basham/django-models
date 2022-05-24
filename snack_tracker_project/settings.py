@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -42,6 +44,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -125,27 +128,25 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static/"),
 )
 
-# # ************ HEROKU DEPLOYMENT *****************
-# 
-# #  Add configuration for static files storage using whitenoise
-# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-# 
-# prod_db = dj_database_url.config(conn_max_age=500)
-# DATABASES['default'].update(prod_db)
-# 
-# # Default primary key field type
-# # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
-# 
-# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# 
-# ALLOWED_HOSTS = ['django-snacks-thomas-basham.herokuapp.com']
-# 
-# # Activate Django-Heroku.
-# django_heroku.settings(locals())
+# ************ HEROKU DEPLOYMENT *****************
+
+#  Add configuration for static files storage using whitenoise
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+prod_db = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+ALLOWED_HOSTS = ['django-models-thomas-basham.herokuapp.com']
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
