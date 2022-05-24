@@ -1,6 +1,7 @@
 
 # Lab: Django-Models
 **Author: Thomas Basham**
+
 [Deployed Site](https://django-models-thomas-basham.herokuapp.com/)
 
 ## Resources
